@@ -5,7 +5,7 @@ cLeft  = place_meeting(x - 1, y, obj_block);
 cRight = place_meeting(x + 1, y, obj_block);
 if(cLeft xor cRight)
 {
-	var plat=instance_place(x+(-cLeft+cRight)*8,y,obj_block);
+	var plat=instance_place(x+(cRight-cLeft),y,obj_block);
 	currentPlatSpd=plat.momentum;
 }
 

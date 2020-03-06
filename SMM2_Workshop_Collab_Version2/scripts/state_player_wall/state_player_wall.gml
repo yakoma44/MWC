@@ -5,10 +5,6 @@ if state_new{
 horizontalInputTotal=(obj_inputControl.playerRightHeld-obj_inputControl.playerLeftHeld);
 verticalInputTotal=obj_inputControl.playerDownHeld-obj_inputControl.playerUpHeld;
 
-//Inherit Momentum from Moving Platform
-vx+=(prevPlatSpd-currentPlatSpd)*-1;
-prevPlatSpd=currentPlatSpd;
-
 var _busy = (attacking or usingSub);
 if !(_busy)
 {
@@ -77,12 +73,18 @@ if(facing=-1)
 {
 	if(!cLeft)//If no longer in contact with a wall to the left when facing left. Switch to air state
 	{
+		//Inherit Momentum from Moving Platform
+		vx+=(prevPlatSpd-currentPlatSpd)*-1;
+		prevPlatSpd=currentPlatSpd;
 		scr_stateSwitch("Air");	
 	}
 	if(horizontalInputTotal==1 && obj_inputControl.jumpBuffer>0)//Switch direction facing and wall jump
 	{
 		obj_inputControl.jumpBuffer=0
 		facing=1;
+		//Inherit Momentum from Moving Platform
+		vx+=(prevPlatSpd-currentPlatSpd)*-1;
+		prevPlatSpd=currentPlatSpd;
 		audio_play_sound_on(global.SEemitter,snd_jump,false,1)
 		scr_stateSwitch("Air");
 		vy=jumpSpeed;	
@@ -92,12 +94,18 @@ else if(facing=1)
 {
 	if(!cRight)
 	{
+		//Inherit Momentum from Moving Platform
+		vx+=(prevPlatSpd-currentPlatSpd)*-1;
+		prevPlatSpd=currentPlatSpd;
 		scr_stateSwitch("Air");	
 	}
 	if(horizontalInputTotal==-1 && obj_inputControl.jumpBuffer>0)
 	{
 		obj_inputControl.jumpBuffer=0
 		facing=-1;
+		//Inherit Momentum from Moving Platform
+		vx+=(prevPlatSpd-currentPlatSpd)*-1;
+		prevPlatSpd=currentPlatSpd;
 		audio_play_sound_on(global.SEemitter,snd_jump,false,1)
 		scr_stateSwitch("Air");
 		vy=jumpSpeed;	

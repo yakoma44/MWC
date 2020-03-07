@@ -839,6 +839,14 @@
             }
         },
         {
+            "Key": "7f87d108-9878-4851-9f0c-752f4d7d46bb",
+            "Value": {
+                "id": "5d3db464-da84-4106-b7b5-43e13abdd151",
+                "resourcePath": "objects\\obj_mario\\obj_mario.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "80cd0145-9c94-406a-bef1-3480f58af639",
             "Value": {
                 "id": "7bbdad82-a934-42b7-9447-3beb8634267c",
@@ -932,6 +940,14 @@
                 "id": "e5d2ca22-25bc-401b-8bde-022222709646",
                 "resourcePath": "views\\8f11e2fd-0ccd-4c18-8b5e-2dc98d080906.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "8f1246c1-2724-49f4-8899-fa9ecb11ac6e",
+            "Value": {
+                "id": "85d89f3a-2073-4902-b1d9-3b5afb630d40",
+                "resourcePath": "sprites\\spr_mario\\spr_mario.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -1519,6 +1535,14 @@
             }
         },
         {
+            "Key": "def88241-71aa-4523-991a-d2d06122e6dc",
+            "Value": {
+                "id": "6002dc1f-91a2-4b65-9c41-8dbd51260bc2",
+                "resourcePath": "scripts\\state_mario_generic\\state_mario_generic.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "df087e65-a4fe-43c8-945d-a2de1f4ba4a7",
             "Value": {
                 "id": "6ef7c949-5608-4b9c-9953-25f14c2509a4",
@@ -1746,6 +1770,7 @@
         "966c13cd-70ba-4c06-b301-2ebff14f6502",
         "87731c70-f5f1-4c07-bf43-1656d3bf8403",
         "83b36397-a259-4bcb-bf17-924d9f66bb67",
+        "def88241-71aa-4523-991a-d2d06122e6dc",
         "0beeaea3-99d9-415e-985b-9da8f1e64171",
         "4cb814e0-0496-4b95-8ea7-9e86588942be",
         "57f852c4-740c-4766-859c-83fc7e5d7f5d",

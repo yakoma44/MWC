@@ -7,7 +7,7 @@ TIME_TO_JUMP_APEX = 0.31;
 JUMP_GRAVITY = 2*JUMP_HEIGHT / sqr(TIME_TO_JUMP_APEX);
 FALL_GRAVITY = 7*JUMP_HEIGHT / sqr(TIME_TO_JUMP_APEX);
 JUMP_VELOCITY = 2*JUMP_HEIGHT / TIME_TO_JUMP_APEX;
-JUMP_FLOAT = 0; // NOTE(hayden): Use small (< 4) positive values only
+JUMP_FLOAT = 3; // NOTE(hayden): Use small (< 4) positive values only
 
 acceleration = JUMP_GRAVITY;
 ySpeed = JUMP_VELOCITY;

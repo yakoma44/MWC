@@ -527,6 +527,14 @@
             }
         },
         {
+            "Key": "5225b230-6cc5-4f3e-b9ec-7e4c4fb96ce0",
+            "Value": {
+                "id": "10d06acf-bbd7-419d-a8bc-5bf57c9b90a9",
+                "resourcePath": "scripts\\scr_isActive\\scr_isActive.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "52a5333e-4aaf-40bc-830c-deb4661ac219",
             "Value": {
                 "id": "3762613c-132b-4e58-8dc4-663642420af7",
@@ -1359,6 +1367,14 @@
             }
         },
         {
+            "Key": "cb8f62e8-56aa-4cf5-8ba7-2f7b50991442",
+            "Value": {
+                "id": "5aa83055-48bc-41f7-a60b-b55d438f24f7",
+                "resourcePath": "objects\\obj_spawnBuffer\\obj_spawnBuffer.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "cbcf1d51-f990-42cf-a75b-deb79a6ff235",
             "Value": {
                 "id": "dcefe1dc-b771-4634-b6c4-9e926f7ebb7f",
@@ -1460,6 +1476,14 @@
                 "id": "eb19bb9c-e072-4479-af1e-4ace107b9fd0",
                 "resourcePath": "views\\d5ef70fd-1438-4a4a-af5c-8ae77cca29ff.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "d76164ed-98da-4a14-a05e-35888c6ff40b",
+            "Value": {
+                "id": "af29573b-62e7-48e9-b504-e9a24a9c337e",
+                "resourcePath": "scripts\\scr_updateEnemyLocation\\scr_updateEnemyLocation.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -1579,6 +1603,14 @@
             "Value": {
                 "id": "8cabdac1-dbf8-46c0-ac02-776e02330b56",
                 "resourcePath": "scripts\\scr_setOptionVariableStrings\\scr_setOptionVariableStrings.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "e745fb3d-a610-48c2-8e0d-c6cfbf4c5c5c",
+            "Value": {
+                "id": "d072d301-8659-45b8-9651-48238d80260b",
+                "resourcePath": "scripts\\scr_enemyBeginStep\\scr_enemyBeginStep.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -1780,6 +1812,7 @@
         "bd481e63-ec74-4c1f-8338-60a0b4f8a492",
         "1ead8f83-67d3-411c-bd0f-365929cfe9cb",
         "21f090cd-6af0-4b06-9db1-55ecef956ad5",
+        "d76164ed-98da-4a14-a05e-35888c6ff40b",
         "7d61199d-cf3e-4c7b-b180-7bf656428c60",
         "9f7e7fd9-807c-4a69-9fb5-fbea49f55216",
         "5333a589-7cc6-48ce-a278-a9021a59beeb",
@@ -1798,7 +1831,9 @@
         "11e9648c-a4cb-43b3-8c4a-d0dc76f0ee1f",
         "22498d6d-9fef-49d9-932b-8c6af8b628f7",
         "94971eb6-c4c0-440d-b689-ce6013f23613",
-        "e6b5e8e5-9a3c-4152-81ed-6fa198a6adca"
+        "e6b5e8e5-9a3c-4152-81ed-6fa198a6adca",
+        "e745fb3d-a610-48c2-8e0d-c6cfbf4c5c5c",
+        "5225b230-6cc5-4f3e-b9ec-7e4c4fb96ce0"
     ],
     "tutorial": ""
 }

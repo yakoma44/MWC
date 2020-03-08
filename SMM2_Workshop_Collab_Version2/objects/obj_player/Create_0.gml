@@ -1,30 +1,30 @@
 ///Establish variables
 vx=0; 
 vy=0; 
-grav=.6; 
+grav=0.17; 
 //clingTime = 2.0;
 prevPlatSpd=0;
 currentPlatSpd=0;
-runSpeed=3; //should be 1.5 but cannot figure out how to set roomspeed to 60 fps
+runSpeed=1.5; 
 prevRunSpd=0;
 currentRunspd=0;
-jumpSpeed=-8;
-wallJumpSpeed=-6;
-backAirSpeed=1; //should be 0.5
+jumpSpeed=-4;
+wallJumpSpeed=-3;
+backAirSpeed=0.5; 
 prevAirSpd=0;
 currentAirSpd=0;
-climbSpeed=2;
+climbSpeed=1;
 facing=1;
-vyMax=8;
+vyMax=4;
 attacking=false;
 usingSub=false;
 
 nudgeMax=4;
-hitstun=12;
+hitstun=24;
 invincibleTimer=0;
-knockbackX=2;
-knockbackY=-4;
-
+knockbackX=1;
+knockbackY=-2;
+invincibleDuration=60;//sets invincible timer
 
 // Used for sub-pixel movement
 cx = 0;

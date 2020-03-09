@@ -109,5 +109,6 @@ if(place_meeting(x,y,par_enemy)&& invincibleTimer=0)
 	vx = knockbackX * sign(obj_player.x-par_enemy.x);
 	vy = knockbackY;
 	invincibleTimer=30;
+	prevAirSpd=0;
 	scr_stateSwitch("Hurt");			
 }

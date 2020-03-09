@@ -1,6 +1,8 @@
-if state_new{
+if state_new
+{
 	scr_resetStateVars();
 }
+ 
 //grab horizontal and vertical input
 horizontalInputTotal=(obj_inputControl.playerRightHeld-obj_inputControl.playerLeftHeld);
 verticalInputTotal=obj_inputControl.playerDownHeld-obj_inputControl.playerUpHeld;
@@ -101,7 +103,7 @@ else if(facing=1)
 	}
 	if(horizontalInputTotal==-1 && obj_inputControl.jumpBuffer>0)
 	{
-		obj_inputControl.jumpBuffer=0
+		obj_inputControl.jumpBuffer=0;
 		facing=-1;
 		//Inherit Momentum from Moving Platform
 		vx+=(prevPlatSpd-currentPlatSpd)*-1;
@@ -114,8 +116,8 @@ else if(facing=1)
 
 if(place_meeting(x,y,par_enemy)&& invincibleTimer=0)
 {
-	vx = knockbackX * sign(obj_player.x-par_enemy.x)
-	vy = knockbackY
-	invincibleTimer=30
-	scr_stateSwitch("Hurt")		
+	vx = knockbackX * sign(obj_player.x-par_enemy.x);
+	vy = knockbackY;
+	invincibleTimer=30;
+	scr_stateSwitch("Hurt");	
 }

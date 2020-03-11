@@ -3,33 +3,125 @@
 
 tDelta = delta_time * .000001; // Seconds
 
-var horizontalInputTotal = keyboard_check(vk_right) - keyboard_check(vk_left);
+var xInputDirection = keyboard_check(vk_right) - keyboard_check(vk_left);
 
-// Placeholder horizontal movement
-currentRunSpd = horizontalInputTotal*-4;
-vx += (prevRunSpd-currentRunSpd);
-prevRunSpd = currentRunSpd;
-if(horizontalInputTotal == -1)
+// Grounded X Movement ///////////////////////////////////////////////////////////
+
+// Check if Run pressed
+var isRunning = keyboard_check(ord("Z"));
+if(isRunning)
+{
+	currentRunSpd += RUN_ACCELERATION*xInputDirection;
+	runCounter = 10;
+}
+else
+{
+	currentRunSpd += WALK_ACCELERATION*xInputDirection;
+	if(runCounter > 0)
+	{
+		--runCounter;
+	}
+}
+
+// Set max speed if running
+if(currentRunSpd > RUN_SPEED_MAX)
+{
+	currentRunSpd = RUN_SPEED_MAX;
+}
+else if(currentRunSpd < -RUN_SPEED_MAX)
+{
+	currentRunSpd = -RUN_SPEED_MAX;
+}
+
+// Set max speed if walking
+if(currentRunSpd > WALK_SPEED_MAX && runCounter == 0)
+{ 
+	currentRunSpd = WALK_SPEED_MAX; 
+}
+else if(currentRunSpd < -WALK_SPEED_MAX && runCounter == 0) 
+{ 
+	currentRunSpd = -WALK_SPEED_MAX; 
+}
+
+// Setting image
+/* NOTE(hayden): This can be moved elsewhere, but it is placed here for a (procedural) reason
+** so variables would need to be set here, or additional testing would need to occur in a 
+** designated animation section
+*/
+image_index = 0;
+if(xInputDirection == -1)
 {
 	image_xscale = -1;
 }
-else if(horizontalInputTotal == 1)
+else if(xInputDirection == 1)
 {
 	image_xscale = 1;
 }
 
-// Jump!
-if(keyboard_check_pressed(ord("Z")))
+// Friction and Skid + Skid animation
+if(xInputDirection == 0)
+{
+	if(currentRunSpd >= WALK_STOP_THRESHOLD && currentRunSpd > 0)
+	{ 
+		currentRunSpd -= X_FRICTION;
+	}
+	else if(currentRunSpd <= -WALK_STOP_THRESHOLD && currentRunSpd < 0) 
+	{ 
+		currentRunSpd += X_FRICTION;
+	}
+	else // Stop walking completely if the speed is below a certain threshold
+	{ 
+		currentRunSpd = 0; 
+	}
+}
+else if((currentRunSpd > 0) && (xInputDirection == -1))
+{
+	if(currentRunSpd >= X_SKID_THRESHOLD) // Only skid if above a certain speed threshold
+	{
+		currentRunSpd -= X_SKID;
+		image_index = 1;
+		image_xscale = 1;
+	}
+	
+	// Skid turnaround
+	if(currentRunSpd <= WALK_STOP_THRESHOLD)
+	{
+		// NOTE(hayden): Enable for slightly "snappier" turns
+		//currentRunSpd = -WALK_STOP_THRESHOLD;
+	}
+}
+else if((currentRunSpd < 0) && (xInputDirection == 1))
+{
+	if(currentRunSpd <= -X_SKID_THRESHOLD) // Only skid if below a certain speed threshold
+	{
+		currentRunSpd += X_SKID;
+		image_index = 1;
+		image_xscale = -1;
+	}
+	
+	// Skid turnaround
+	if(currentRunSpd >= -WALK_STOP_THRESHOLD)
+	{
+		// NOTE(hayden): Enable for slightly "snappier" turns
+		//currentRunSpd = WALK_STOP_THRESHOLD;
+	}
+}
+
+vx -= (prevRunSpd - currentRunSpd*tDelta);
+prevRunSpd = currentRunSpd*tDelta;
+
+// Jumping ///////////////////////////////////////////////////////////////////////
+if(keyboard_check_pressed(ord("X")))
 {
 	ySpeed = -JUMP_VELOCITY;
 	acceleration = JUMP_GRAVITY;
 	initialHeight = vy;
 }
-else if(keyboard_check_released(ord("Z")) || ySpeed >= 0)
+else if(keyboard_check_released(ord("X")) || ySpeed >= 0)
 {
 	acceleration = FALL_GRAVITY;
 }
-else if(keyboard_check(ord("Z")))
+else if(keyboard_check(ord("X")))
 {
 	acceleration = JUMP_GRAVITY + JUMP_FLOAT*(vy-initialHeight);
 }

@@ -1,5 +1,6 @@
 /// @description Jumping only!
-
+plat=NULLVALUE;
+currentPlatSpd=0;
 // X-Axis Movement
 X_MULTIPLIER = .02; // Scales all X-Axis movement proportionally
 WALK_ACCELERATION = 152 * X_MULTIPLIER;

@@ -1,8 +1,8 @@
 {
-    "id": "9469be05-9b4c-4765-b10f-709a26bc5a1d",
+    "id": "7a95f682-2cd0-483d-af3f-ed05c2212ed4",
     "modelName": "GMScript",
     "mvc": "1.0",
-    "name": "script66",
+    "name": "scr_updateLocation1",
     "IsCompatibility": false,
     "IsDnD": false
 }

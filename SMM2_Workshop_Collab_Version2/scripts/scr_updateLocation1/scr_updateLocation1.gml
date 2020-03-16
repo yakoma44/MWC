@@ -8,14 +8,57 @@ cy -= vyNew;
 
 //Finalize x movement
 repeat(abs(vxNew)) {     
-    if (!place_meeting(x + sign(vxNew), y, obj_block))
+    //this needs to be changed to allow player to clip when going up/down slope but also prevent player from
+	//going into a wall when at the top/bottom of a slope
+	if (!place_meeting(x + sign(vxNew), y, obj_block))
+	{
         x += sign(vxNew);
-    else        
+	}
+    else if (position_meeting(x+sign(vxNew),y+1,obj_slope45))
+	{
+		x += sign(vxNew);
+	}
+	else{
 		vxNew = 0;
+	}
+	//moving downhill
+	if (position_meeting(x,y+2,obj_slope45))
+	{
+		var plat=instance_position(x,y+2,obj_slope45);
+		//x += sign(vxNew);
+		if(y > plat.y+14-(x-plat.x) || vyNew>=0)
+		{
+			y=plat.y+14-((x-plat.x));
+			//vy=0;
+		}
+	}
+	//moving uphill
+	if (position_meeting(x,y-1,obj_slope45))
+	{
+		var plat=instance_position(x,y-1,obj_slope45);
+		//x += sign(vxNew);
+		if(y > plat.y+14-(x-plat.x)|| vyNew>=0)
+		{
+			y=plat.y+14-((x-plat.x));
+			//vy=0;
+		}
+	}
 }  
 //Finalize y movement
-for(i=0;i<=abs(vyNew);i++){
-    
+for(i=0;i<=abs(vyNew);i++)
+{
+    // check for collision below for slope
+	if(vyNew>0 && position_meeting(x,y+1,obj_slope45))
+	{
+        var plat=instance_position(x,y+1,obj_slope45);
+		if(y > plat.y+14-((x-plat.x)))
+		{
+			y=plat.y+14-((x-plat.x));	
+			vyNew=0;
+			//vy=0;
+		}
+    }
+	
 	// check for collision below for quarter block
     if(vyNew>0 && place_meeting(x,y+sign(vyNew),obj_quarterBlock) && !place_meeting(x, y, obj_quarterBlock)){
         vyNew=0;//works with vyNew NOT vy
@@ -32,8 +75,7 @@ for(i=0;i<=abs(vyNew);i++){
 		{
 			if(!obj_inputControl.playerDownHeld)
 			{
-				vyNew=0;
-				//allows player to automatically hang on ceiling when dropping through it unless holding down
+				vyNew=0;//automatically grab when dropping through half-block
 			}
 		}
 	}
@@ -41,7 +83,7 @@ for(i=0;i<=abs(vyNew);i++){
 	{
 		//check if player is holding up and not already inside a half-block
 		if place_meeting(x,y+sign(vyNew),obj_halfBlock) and !place_meeting(x,y,obj_halfBlock)
-			vyNew=0;//allows player to grab ceiling when moving up and holding up
+			vyNew=0
 	}
 	
 	// NORMAL Y MOVEMENT 

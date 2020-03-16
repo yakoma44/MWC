@@ -1,6 +1,6 @@
 /// @description Jumping only!
 // You can write your code in this editor
-
+onGround = OnGround1();
 tDelta = delta_time * .000001; // Seconds
 
 var xInputDirection = keyboard_check(vk_right) - keyboard_check(vk_left);
@@ -74,7 +74,7 @@ if(xInputDirection == 0)
 		currentRunSpd = 0; 
 	}
 }
-else if((currentRunSpd > 0) && (xInputDirection == -1))
+else if((currentRunSpd > 0) && (xInputDirection == -1))//if currently running right but input left
 {
 	if(currentRunSpd >= X_SKID_THRESHOLD) // Only skid if above a certain speed threshold
 	{
@@ -90,7 +90,7 @@ else if((currentRunSpd > 0) && (xInputDirection == -1))
 		//currentRunSpd = -WALK_STOP_THRESHOLD;
 	}
 }
-else if((currentRunSpd < 0) && (xInputDirection == 1))
+else if((currentRunSpd < 0) && (xInputDirection == 1))//if currently running left but input right
 {
 	if(currentRunSpd <= -X_SKID_THRESHOLD) // Only skid if below a certain speed threshold
 	{
@@ -111,7 +111,7 @@ vx -= (prevRunSpd - currentRunSpd*tDelta);
 prevRunSpd = currentRunSpd*tDelta;
 
 // Jumping ///////////////////////////////////////////////////////////////////////
-if(keyboard_check_pressed(ord("X")))
+if(keyboard_check_pressed(ord("X")) && onGround==true)
 {
 	ySpeed = -JUMP_VELOCITY;
 	acceleration = JUMP_GRAVITY;
@@ -128,9 +128,12 @@ else if(keyboard_check(ord("X")))
 
 vy = 0.5*acceleration*sqr(tDelta) + ySpeed*tDelta;
 ySpeed += 0.5*acceleration*tDelta
-
+if(onGround==true&&vy>0)
+{
+	vy=0;	
+}
 // TODO(hayden): onGround checks
 // TODO(hayden): Fix gravity accumulating while grounded (causing teleporting when leaving platforms)
 // TODO(hayden): x-axis movement
 
-scr_updateLocation();
+scr_updateLocation1();

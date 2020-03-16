@@ -1,13 +1,11 @@
-if state_new{
+if state_new
+{
 	scr_resetStateVars();
 }
+ 
 //grab horizontal and vertical input
 horizontalInputTotal=(obj_inputControl.playerRightHeld-obj_inputControl.playerLeftHeld);
 verticalInputTotal=obj_inputControl.playerDownHeld-obj_inputControl.playerUpHeld;
-
-//Inherit Momentum from Moving Platform
-vx+=(prevPlatSpd-currentPlatSpd)*-1;
-prevPlatSpd=currentPlatSpd;
 
 var _busy = (attacking or usingSub);
 if !(_busy)
@@ -77,12 +75,18 @@ if(facing=-1)
 {
 	if(!cLeft)//If no longer in contact with a wall to the left when facing left. Switch to air state
 	{
+		//Inherit Momentum from Moving Platform
+		vx+=(prevPlatSpd-currentPlatSpd)*-1;
+		prevPlatSpd=currentPlatSpd;
 		scr_stateSwitch("Air");	
 	}
 	if(horizontalInputTotal==1 && obj_inputControl.jumpBuffer>0)//Switch direction facing and wall jump
 	{
 		obj_inputControl.jumpBuffer=0
 		facing=1;
+		//Inherit Momentum from Moving Platform
+		vx+=(prevPlatSpd-currentPlatSpd)*-1;
+		prevPlatSpd=currentPlatSpd;
 		audio_play_sound_on(global.SEemitter,snd_jump,false,1)
 		scr_stateSwitch("Air");
 		vy=jumpSpeed;	
@@ -92,12 +96,18 @@ else if(facing=1)
 {
 	if(!cRight)
 	{
+		//Inherit Momentum from Moving Platform
+		vx+=(prevPlatSpd-currentPlatSpd)*-1;
+		prevPlatSpd=currentPlatSpd;
 		scr_stateSwitch("Air");	
 	}
 	if(horizontalInputTotal==-1 && obj_inputControl.jumpBuffer>0)
 	{
-		obj_inputControl.jumpBuffer=0
+		obj_inputControl.jumpBuffer=0;
 		facing=-1;
+		//Inherit Momentum from Moving Platform
+		vx+=(prevPlatSpd-currentPlatSpd)*-1;
+		prevPlatSpd=currentPlatSpd;
 		audio_play_sound_on(global.SEemitter,snd_jump,false,1)
 		scr_stateSwitch("Air");
 		vy=jumpSpeed;	
@@ -106,8 +116,8 @@ else if(facing=1)
 
 if(place_meeting(x,y,par_enemy)&& invincibleTimer=0)
 {
-	vx = knockbackX * sign(obj_player.x-par_enemy.x)
-	vy = knockbackY
-	invincibleTimer=30
-	scr_stateSwitch("Hurt")		
+	vx = knockbackX * sign(obj_player.x-par_enemy.x);
+	vy = knockbackY;
+	invincibleTimer=30;
+	scr_stateSwitch("Hurt");	
 }

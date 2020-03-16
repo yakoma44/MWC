@@ -2,6 +2,7 @@ if (state_new)
 {
 	scr_resetStateVars();
 	sprite_index=spr_playerHurt;
+	--health;
 	audio_play_sound_on(global.SEemitter,snd_player_hurt1,false,1)
 	state_var[2]=hitstun
 }

@@ -113,15 +113,11 @@ else if (obj_inputControl.jumpBuffer>0)
 		scr_stateSwitch("Air");
 	}
 }
-
 if(place_meeting(x,y,par_enemy)&& invincibleTimer=0)
 {
-	var _enemy=instance_place(x,y,par_enemy);
 	prevRunSpd=0;
-	vx = knockbackX * sign(obj_player.x-_enemy.x);
-	vy = knockbackY;
-	invincibleTimer=invincibleDuration;
-	scr_stateSwitch("Hurt");
-	attacking=false;
-	usingSub=false;
+	vx = knockbackX * sign(obj_player.x-par_enemy.x)
+	vy = knockbackY
+	invincibleTimer=30
+	scr_stateSwitch("Hurt")	
 }

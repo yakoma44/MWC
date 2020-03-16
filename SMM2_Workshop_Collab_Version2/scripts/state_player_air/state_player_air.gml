@@ -25,17 +25,17 @@ if (horizontalInputTotal=facing){
 vy =Approach(vy, vyMax, grav);
 
 //set direction facing
-image_xscale=facing;
+image_xscale=facing
 
 if !(_busy)
 {
 	///Set in-state animations
 	if(vy<=0)
 	{
-		sprite_index= spr_playerJump;	
+		sprite_index= spr_playerJump	
 	}else if (vy>0)
 	{
-		sprite_index=spr_playerFall;
+		sprite_index=spr_playerFall	
 	}
 	
 	// RESPOND TO ATTACK BUTTON INPUTS 
@@ -43,7 +43,7 @@ if !(_busy)
 	{
 		if (obj_inputControl.playerUpHeld) // USE SUB WEAPON
 		{
-			usingSub=true;
+			usingSub=true
 			sprite_index = spr_playerJumpSub; 
 			image_index = 0; 
 		}
@@ -82,7 +82,7 @@ if((cLeft&&obj_inputControl.playerLeftHeld)||(cRight&&obj_inputControl.playerRig
 	vy=0;
 	vx-=currentAirSpd;
 	prevAirSpd=0;
-	audio_play_sound_on(global.SEemitter,snd_cling,false,1);
+	audio_play_sound_on(global.SEemitter,snd_cling,false,1)
 	scr_stateSwitch("Wall");
 }
 //check if holding up with a ceiling above us or if when falling down and not holding down to go through
@@ -93,22 +93,21 @@ if((cUp&&verticalInputTotal==-1)or
 	vy=0;
 	vx-=currentAirSpd;
 	prevAirSpd=0;
-	audio_play_sound_on(global.SEemitter,snd_cling,false,1);
+	audio_play_sound_on(global.SEemitter,snd_cling,false,1)
 	scr_stateSwitch("Ceiling");	
 }
 //Allows player to Ghost Jump
 if(obj_inputControl.ledgeGraceTime>0&&obj_inputControl.jumpBuffer>0){
 	obj_inputControl.jumpBuffer=0;
 	vy=jumpSpeed;
-	audio_play_sound_on(global.SEemitter,snd_jump,false,1);
+	audio_play_sound_on(global.SEemitter,snd_jump,false,1)
 	//scr_stateSwitch("Air");
 }
 //Apply knockback and invincibility timer when hit by an enemy
 if(place_meeting(x,y,par_enemy)&& invincibleTimer=0)
 {
-	vx = knockbackX * sign(obj_player.x-par_enemy.x);
-	vy = knockbackY;
-	invincibleTimer=30;
-	prevAirSpd=0;
-	scr_stateSwitch("Hurt");			
+	vx = knockbackX * sign(obj_player.x-par_enemy.x)
+	vy = knockbackY
+	invincibleTimer=30
+	scr_stateSwitch("Hurt")			
 }

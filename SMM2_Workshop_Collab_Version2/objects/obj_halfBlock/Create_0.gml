@@ -5,5 +5,5 @@ momentum=0; //Momentum is set by PlatformSpeed so don't change it
 // Set in the room editor as x +/- whatever distance to make a moving platform
 positionTo=x;
 positionFrom=x;
-platformSpeed=1;//horizontal platform speed
+platformSpeed=2;//horizontal platform speed
 dir=0;//direction platform is moving in. -1 for left and 1 for right.

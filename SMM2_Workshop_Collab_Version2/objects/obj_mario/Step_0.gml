@@ -2,122 +2,143 @@
 // You can write your code in this editor
 
 tDelta = delta_time * .000001; // Seconds
+image_index = 0;
 
 var xInputDirection = keyboard_check(vk_right) - keyboard_check(vk_left);
+var isOnGroundOrCeiling = OnGround() || OnCeiling();
+var runIsDown = keyboard_check(ord("Z"));
+var absXSpeed = abs(xSpeed);
 
 // Grounded X Movement ///////////////////////////////////////////////////////////
 
-// Check if Run pressed
-var isRunning = keyboard_check(ord("Z"));
-if(isRunning)
+// Set acceleration based on whether or not the player is running
+var signOfCurrentSpeed = sign(xSpeed);
+if(isOnGroundOrCeiling == true)
 {
-	currentRunSpd += RUN_ACCELERATION*xInputDirection;
-	runCounter = 10;
-}
-else
-{
-	currentRunSpd += WALK_ACCELERATION*xInputDirection;
-	if(runCounter > 0)
+	if(runIsDown)
 	{
-		--runCounter;
+		xSpeed += RUN_ACCELERATION*xInputDirection;
+		runCounter = 10; // Mario's run doesn't stop unless until 10 frames after the button has been released
 	}
-}
-
-// Set max speed if running
-if(currentRunSpd > RUN_SPEED_MAX)
-{
-	currentRunSpd = RUN_SPEED_MAX;
-}
-else if(currentRunSpd < -RUN_SPEED_MAX)
-{
-	currentRunSpd = -RUN_SPEED_MAX;
-}
-
-// Set max speed if walking
-if(currentRunSpd > WALK_SPEED_MAX && runCounter == 0)
-{ 
-	currentRunSpd = WALK_SPEED_MAX; 
-}
-else if(currentRunSpd < -WALK_SPEED_MAX && runCounter == 0) 
-{ 
-	currentRunSpd = -WALK_SPEED_MAX; 
-}
-
-// Setting image
-/* NOTE(hayden): This can be moved elsewhere, but it is placed here for a (procedural) reason
-** so variables would need to be set here, or additional testing would need to occur in a 
-** designated animation section
-*/
-image_index = 0;
-if(xInputDirection == -1)
-{
-	image_xscale = -1;
-}
-else if(xInputDirection == 1)
-{
-	image_xscale = 1;
-}
-
-// Friction and Skid + Skid animation
-if(xInputDirection == 0)
-{
-	if(currentRunSpd >= WALK_STOP_THRESHOLD && currentRunSpd > 0)
-	{ 
-		currentRunSpd -= X_FRICTION;
-	}
-	else if(currentRunSpd <= -WALK_STOP_THRESHOLD && currentRunSpd < 0) 
-	{ 
-		currentRunSpd += X_FRICTION;
-	}
-	else // Stop walking completely if the speed is below a certain threshold
-	{ 
-		currentRunSpd = 0; 
-	}
-}
-else if((currentRunSpd > 0) && (xInputDirection == -1))
-{
-	if(currentRunSpd >= X_SKID_THRESHOLD) // Only skid if above a certain speed threshold
+	else
 	{
-		currentRunSpd -= X_SKID;
-		image_index = 1;
-		image_xscale = 1;
+		xSpeed += WALK_ACCELERATION*xInputDirection;
+		if(runCounter > 0) { --runCounter; }
+	}
+
+	// Set max speed if running
+	if(absXSpeed > RUN_SPEED_MAX)
+	{
+		xSpeed = RUN_SPEED_MAX*signOfCurrentSpeed;
+	}
+
+	// Set max speed if walking
+	if(absXSpeed > WALK_SPEED_MAX && runCounter == 0)
+	{ 
+		xSpeed = WALK_SPEED_MAX*signOfCurrentSpeed; 
+	}
+
+	// Setting image
+	if(xInputDirection != 0)
+	{
+		image_xscale = xInputDirection;
+	}
+
+	// Friction and Skid + Skid animation
+	if(xInputDirection == 0)
+	{
+		if(absXSpeed >= WALK_STOP_THRESHOLD)
+		{ 
+			xSpeed -= X_FRICTION*signOfCurrentSpeed;
+		}
+		else // Stop walking completely if the speed is below a certain threshold
+		{ 
+			xSpeed = 0; 
+		}
+	}
+	else if(absXSpeed > 0 && xInputDirection != signOfCurrentSpeed)
+	{
+		if(absXSpeed >= X_SKID_THRESHOLD) // Only skid if above a certain speed threshold
+		{
+			xSpeed -= X_SKID*signOfCurrentSpeed;
+			image_index = 1;
+			image_xscale = xInputDirection;
+		}
+	
+		// Skid turnaround
+		if(absXSpeed <= WALK_STOP_THRESHOLD) // NOTE(hayden): Enable for slightly "snappier" turns
+		{
+			//xSpeed = -WALK_STOP_THRESHOLD*signOfCurrentSpeed;
+		}
 	}
 	
-	// Skid turnaround
-	if(currentRunSpd <= WALK_STOP_THRESHOLD)
-	{
-		// NOTE(hayden): Enable for slightly "snappier" turns
-		//currentRunSpd = -WALK_STOP_THRESHOLD;
-	}
+	wasInRunThreshold = (absXSpeed > WALK_SPEED_MAX);
+	wasInWalkThreshold = (absXSpeed > X_AERIAL_BACKWARD_JUMP_START_WALKING_THRESHOLD);
 }
-else if((currentRunSpd < 0) && (xInputDirection == 1))
+
+// Aerial X Movement /////////////////////////////////////////////////////////////
+if(isOnGroundOrCeiling == false)
 {
-	if(currentRunSpd <= -X_SKID_THRESHOLD) // Only skid if below a certain speed threshold
+	if(xInputDirection == image_xscale) // Forward momentum
 	{
-		currentRunSpd += X_SKID;
-		image_index = 1;
-		image_xscale = -1;
+		if(absXSpeed >= WALK_SPEED_MAX)
+		{
+			xSpeed += xInputDirection*X_AERIAL_FORWARD_MOMENTUM_UPPER;
+		}
+		else if(absXSpeed < WALK_SPEED_MAX)
+		{
+			xSpeed += xInputDirection*X_AERIAL_FORWARD_MOMENTUM_LOWER;
+		}
+	}
+	else if(xInputDirection == -image_xscale) // Backward momentum
+	{
+		if(wasInRunThreshold == true)
+		{
+			xSpeed += xInputDirection*X_AERIAL_BACKWARD_MOMENTUM_MAX;
+		}
+		else if(wasInWalkThreshold == true)
+		{
+			xSpeed += xInputDirection*X_AERIAL_BACKWARD_MOMENTUM_UPPER_BELOW_JUMP_START_THRESHOLD;
+		}
+		else if(wasInWalkThreshold == false)
+		{
+			xSpeed += xInputDirection*X_AERIAL_BACKWARD_MOMENTUM_LOWER_BELOW_JUMP_START_THRESHOLD;
+		}
 	}
 	
-	// Skid turnaround
-	if(currentRunSpd >= -WALK_STOP_THRESHOLD)
+	if(wasInRunThreshold == true)
 	{
-		// NOTE(hayden): Enable for slightly "snappier" turns
-		//currentRunSpd = WALK_STOP_THRESHOLD;
+		if(absXSpeed > RUN_SPEED_MAX)
+		{
+			xSpeed = signOfCurrentSpeed*RUN_SPEED_MAX;
+		}
+	}
+	else
+	{
+		if(xSpeed > WALK_SPEED_MAX)
+		{
+			xSpeed = signOfCurrentSpeed*WALK_SPEED_MAX;
+		}
 	}
 }
 
-vx -= (prevRunSpd - currentRunSpd*tDelta);
-prevRunSpd = currentRunSpd*tDelta;
+vx -= (previousXSpeed - xSpeed*tDelta);
+previousXSpeed = xSpeed*tDelta;
 
 // Jumping ///////////////////////////////////////////////////////////////////////
-if(keyboard_check_pressed(ord("X")))
+if(keyboard_check_pressed(ord("X")) && isOnGroundOrCeiling)
 {
 	ySpeed = -JUMP_VELOCITY;
 	acceleration = JUMP_GRAVITY;
 	initialHeight = vy;
 }
-else if(keyboard_check_released(ord("X")) || ySpeed >= 0)
+else if(isOnGroundOrCeiling)
+{
+	acceleration = FALL_GRAVITY;
+	ySpeed = 0;
+}
+
+if(keyboard_check_released(ord("X")) || ySpeed >= 0)
 {
 	acceleration = FALL_GRAVITY;
 }
@@ -128,9 +149,5 @@ else if(keyboard_check(ord("X")))
 
 vy = 0.5*acceleration*sqr(tDelta) + ySpeed*tDelta;
 ySpeed += 0.5*acceleration*tDelta
-
-// TODO(hayden): onGround checks
-// TODO(hayden): Fix gravity accumulating while grounded (causing teleporting when leaving platforms)
-// TODO(hayden): x-axis movement
 
 scr_updateLocation();

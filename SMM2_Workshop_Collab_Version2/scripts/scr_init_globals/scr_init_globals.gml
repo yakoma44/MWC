@@ -8,10 +8,12 @@
 **      Initializes all of the global variables used throughout the game.
 */
 
+//Time Limit
+global.timer = 0;
+
 //Coins
 global.coins = 0;
 
 //Lives
-lives = 1;
-
+lives = 5;
 

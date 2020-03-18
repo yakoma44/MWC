@@ -7,23 +7,17 @@ cx -= vxNew;
 cy -= vyNew;
 
 //Finalize x movement
-repeat(abs(vxNew)) 
-{     
-    if(!place_meeting(x + sign(vxNew), y, obj_block))
+repeat(abs(vxNew)) {     
+    if (!place_meeting(x + sign(vxNew), y, obj_block))
         x += sign(vxNew);
-    else
-	{
+    else        
 		vxNew = 0;
-		xSpeed = 0;
-	}
 }  
-
 //Finalize y movement
-for(i=0;i<=abs(vyNew);i++)
-{    
+for(i=0;i<=abs(vyNew);i++){
+    
 	// check for collision below for quarter block
-    if(vyNew>0 && place_meeting(x, y+sign(vyNew), obj_quarterBlock) && !place_meeting(x, y, obj_quarterBlock))
-	{
+    if(vyNew>0 && place_meeting(x,y+sign(vyNew),obj_quarterBlock) && !place_meeting(x, y, obj_quarterBlock)){
         vyNew=0;//works with vyNew NOT vy
     }
 	
@@ -50,7 +44,7 @@ for(i=0;i<=abs(vyNew);i++)
 	}
 	
 	// NORMAL Y MOVEMENT 
-    if(!place_meeting(x,y+sign(vyNew),obj_block))
+    if (!place_meeting(x,y+sign(vyNew),obj_block))
 	{ y+= sign(vyNew);}
 	// ABNORMAL Y MOVEMENT
     else 
@@ -84,6 +78,7 @@ for(i=0;i<=abs(vyNew);i++)
 			else {vy = 0;}
 		}
 	}
+    
 }
 
 /*

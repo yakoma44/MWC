@@ -2,9 +2,8 @@
 // You can write your code in this editor
 
 
-enemy=obj_blitzer;
+enemy=obj_blitzer
 xfacing=-1
-xOffset=0;
-yOffset=33;
-enemyID=NULLVALUE;
-
+xOffset=obj_camera.widthHalf
+yOffset=33
+enemyID=NULLVALUE

@@ -12,6 +12,18 @@ if(cLeft xor cRight)
 invincibleTimer = max(invincibleTimer -1, 0);
 scr_stateExecute();
 scr_updateLocation(); 
+//insert gameover/death/continue shit here
+
+//timer
+
+//lose all health lose 1 life
+if health = 0{
+	lives--;
+ instance_destroy();
+ room_restart();
+}
+
+
 /*
 ///Input Handling & Movement
 //---------------------------------------------------------------------------------------

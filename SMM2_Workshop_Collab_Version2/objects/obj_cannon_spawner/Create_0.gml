@@ -9,13 +9,17 @@ is_facing_left = true; // whether the cannon is facing left. if false, then it's
 timer = prepare_to_shoot_time;
 is_reloading = false;
 
+//NOTE: if the cannonball touches the cannon that spawns it, it will die
+//so, you need x_offset to push the cannonball out far enough that it won't do that
 if (is_facing_left) {
-	x_offset = -12;
-	y_offset = -2;
-	object_direction = 180;
+    //x_offset = -12;
+    x_offset = -20;
+    y_offset = -2;
+    object_direction = 180;
 } else {
-	x_offset = 12;
-	y_offset = -2;
+    //x_offset = 12;
+    x_offset = 20;
+    y_offset = -2;
 	object_direction = 0;
 	image_xscale = -1; // flip the image
 }

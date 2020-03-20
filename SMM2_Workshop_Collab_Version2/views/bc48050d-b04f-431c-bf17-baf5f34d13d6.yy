@@ -12,7 +12,8 @@
         "aaf33518-a15a-4e94-a047-2cb7f7f21e8f",
         "406f6137-04b3-45f5-a61a-78a95d9c0a6c",
         "c2883da4-fc1c-4a2f-ae4a-83fbea28eb10",
-        "7b8694ab-c4f2-4bd4-a196-d2b85e9e35b1"
+        "7b8694ab-c4f2-4bd4-a196-d2b85e9e35b1",
+        "ae901a53-a183-4ec0-89bd-64c1928102b8"
     ],
     "filterType": "GMScript",
     "folderName": "essential functions",

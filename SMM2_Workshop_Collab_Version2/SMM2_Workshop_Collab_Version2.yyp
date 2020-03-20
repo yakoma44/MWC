@@ -1247,6 +1247,14 @@
             }
         },
         {
+            "Key": "ae901a53-a183-4ec0-89bd-64c1928102b8",
+            "Value": {
+                "id": "c667ea8f-cc72-497a-aff9-125e28a4de3a",
+                "resourcePath": "scripts\\scr_timeFactor\\scr_timeFactor.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "aee869a3-4ba6-43fe-bf7d-e8d65eb8f362",
             "Value": {
                 "id": "2581d2cb-b0a5-4b7c-96b8-f4484d0d0305",
@@ -1860,6 +1868,7 @@
         "406f6137-04b3-45f5-a61a-78a95d9c0a6c",
         "c2883da4-fc1c-4a2f-ae4a-83fbea28eb10",
         "7b8694ab-c4f2-4bd4-a196-d2b85e9e35b1",
+        "ae901a53-a183-4ec0-89bd-64c1928102b8",
         "68273900-7280-4571-838b-99342f2403d1",
         "a1b3d040-337f-443a-9f09-03b6504bcf48",
         "da80f75e-1d90-4aed-85e5-38a938f576ef",

@@ -15,3 +15,4 @@ cRight   = place_meeting(x + 1, y, obj_block);
 cUp		 = place_meeting(x,y-1,obj_block);
 cx=0;
 cy=0;
+objectSpeed = 0;

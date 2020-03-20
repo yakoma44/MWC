@@ -7,6 +7,8 @@ if (timer <= 0) {
 		is_reloading = true;
 		obj = instance_create(x + x_offset, y + y_offset, object_to_spawn);
 		obj.speed = object_speed;
+        //obj.speed = object_speed;
+        obj.objectSpeed = object_speed;
 		obj.direction = object_direction;
 	}
 }
@@ -20,4 +22,5 @@ if (!is_reloading) {//if reloading is false
 	image_index = image_number - 1;
 }
 
-timer -= 1;
+//timer -= 1;
+timer = scr_timeFactor(timer, -1, "linear");

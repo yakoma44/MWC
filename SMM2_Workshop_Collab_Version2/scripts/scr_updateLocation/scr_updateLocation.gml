@@ -1,6 +1,8 @@
 //sub pixel adjustment
-cx += vx;
-cy += vy;
+//cx += vx;
+//cy += vy;
+cx = scr_timeFactor(cx, vx, "linear");
+cy = scr_timeFactor(cy, vy, "linear");
 vxNew = floor(cx);
 vyNew = floor(cy);
 cx -= vxNew;

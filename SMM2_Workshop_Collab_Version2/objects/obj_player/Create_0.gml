@@ -25,6 +25,8 @@ invincibleTimer=0;
 knockbackX=1;
 knockbackY=-2;
 invincibleDuration=60;//sets invincible timer
+//stats when player dies and comes back these values will reset too
+health =1;
 
 // Used for sub-pixel movement
 cx = 0;

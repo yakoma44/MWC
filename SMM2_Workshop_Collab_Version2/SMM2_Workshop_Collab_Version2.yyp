@@ -239,6 +239,14 @@
             }
         },
         {
+            "Key": "214d8d51-aaa7-4f8b-8af7-8ff976037eb7",
+            "Value": {
+                "id": "0a9d2746-bf54-4cf4-8503-e39b368d63ac",
+                "resourcePath": "scripts\\state_ghost_chase\\state_ghost_chase.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "21ca9da6-5da1-4719-a926-a6025992a0c3",
             "Value": {
                 "id": "b212bfca-e523-42fe-b876-220c55c1b230",
@@ -879,6 +887,14 @@
             }
         },
         {
+            "Key": "83364b0b-b0e3-422c-8a78-88e3fb1c3db7",
+            "Value": {
+                "id": "51e6b810-2d85-41e8-8340-2ffbc28f2ca3",
+                "resourcePath": "objects\\obj_ghost\\obj_ghost.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "835986f9-1ee9-4e82-abca-4918a8ad8115",
             "Value": {
                 "id": "d442c40f-a147-4663-ad75-da4b38f6b2f3",
@@ -1023,6 +1039,14 @@
             }
         },
         {
+            "Key": "95b43fc3-626b-482c-a852-dddb75cd8a9a",
+            "Value": {
+                "id": "cab46ff3-6642-455c-889b-60492227f9c0",
+                "resourcePath": "sprites\\spr_ghostChase\\spr_ghostChase.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "96636eed-fae7-4895-b4fe-4213369d7864",
             "Value": {
                 "id": "ed508e7c-551b-44eb-b85d-1cb43647dd2c",
@@ -1116,6 +1140,14 @@
                 "id": "d99b5bb2-f86e-4c77-8a2c-27a2a4810ab8",
                 "resourcePath": "scripts\\state_blitzer_run\\state_blitzer_run.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "9fcc7afe-ad8e-4b9f-9f9c-56edec8b1090",
+            "Value": {
+                "id": "fb89f0be-17fb-4850-b971-166543a4e3a6",
+                "resourcePath": "sprites\\spr_ghostHide\\spr_ghostHide.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -1503,6 +1535,14 @@
             }
         },
         {
+            "Key": "d77abf61-59db-413d-9a9e-6c31cd8232c1",
+            "Value": {
+                "id": "7cf49931-de82-489c-bc56-da75c1336224",
+                "resourcePath": "scripts\\state_ghost_hide\\state_ghost_hide.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "d7d21763-8323-4549-8709-a1587734ad9f",
             "Value": {
                 "id": "db25fa7f-ed83-4014-8404-1764793912dd",
@@ -1832,6 +1872,8 @@
         "7d61199d-cf3e-4c7b-b180-7bf656428c60",
         "9f7e7fd9-807c-4a69-9fb5-fbea49f55216",
         "5333a589-7cc6-48ce-a278-a9021a59beeb",
+        "214d8d51-aaa7-4f8b-8af7-8ff976037eb7",
+        "d77abf61-59db-413d-9a9e-6c31cd8232c1",
         "f87d3d31-31d0-478a-b013-0347153c129a",
         "9f4c071d-3efe-4542-8bf4-2ebcdf7036c7",
         "e12d071e-8186-48aa-8e40-08148c68b1b6",

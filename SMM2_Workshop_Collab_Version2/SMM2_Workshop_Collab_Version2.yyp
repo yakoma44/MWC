@@ -151,6 +151,14 @@
             }
         },
         {
+            "Key": "14ed4993-54d2-429f-99fe-953b84dc7690",
+            "Value": {
+                "id": "916a3dd9-26ea-4ecf-b2ca-ddf350e50b62",
+                "resourcePath": "sprites\\spr_double_cannon_spawner\\spr_double_cannon_spawner.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "15ac2aea-eb46-4a4c-9ca9-d28c8bd3e781",
             "Value": {
                 "id": "63c48618-f6bd-4822-afd1-2d88d2df9b81",
@@ -655,6 +663,14 @@
             }
         },
         {
+            "Key": "5da704b2-ef8b-4403-aac0-1eb084295383",
+            "Value": {
+                "id": "ba1fce87-ce86-4d30-bb91-f3e873d58bf3",
+                "resourcePath": "objects\\obj_double_cannon_spawner\\obj_double_cannon_spawner.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "5e8fb1b0-fc98-422a-9747-d6636d13b29b",
             "Value": {
                 "id": "ad7f2148-e5c8-47bc-9aa5-f3cea224eac0",
@@ -876,6 +892,14 @@
                 "id": "f95c5935-687e-4d14-b7df-d28e406fafce",
                 "resourcePath": "sprites\\spr_playerCeilingSwing\\spr_playerCeilingSwing.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "7efa5a5f-3ed8-4d18-9eca-7b95eb765723",
+            "Value": {
+                "id": "71570071-54b4-46e1-b2d5-85862f75b5b4",
+                "resourcePath": "scripts\\scr_move_contact\\scr_move_contact.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -1415,6 +1439,14 @@
             }
         },
         {
+            "Key": "c06bf66f-4ac6-4db0-ba0e-d6f10a0d9fe2",
+            "Value": {
+                "id": "d7ef0a6e-5c46-4664-ba99-c16c557caba2",
+                "resourcePath": "sprites\\spr_crusher\\spr_crusher.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "c0742aa6-a14b-47a1-aacf-8ec016adcbec",
             "Value": {
                 "id": "e6350a52-807e-4a16-ae2f-484234111a0a",
@@ -1524,6 +1556,14 @@
                 "id": "ed8c3cce-6a81-49bc-9003-1c6662f9c8a4",
                 "resourcePath": "options\\windows\\options_windows.yy",
                 "resourceType": "GMWindowsOptions"
+            }
+        },
+        {
+            "Key": "cdad7ed7-1792-4f4f-839e-ddea228422e0",
+            "Value": {
+                "id": "098f4080-4cd8-4477-94cf-d42dcbea279f",
+                "resourcePath": "scripts\\scr_find_collision\\scr_find_collision.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -1767,6 +1807,14 @@
             }
         },
         {
+            "Key": "ef2076fc-1134-4f5c-9d4f-263444571de8",
+            "Value": {
+                "id": "bb200727-16e1-4b50-9638-6e751a3464ae",
+                "resourcePath": "objects\\obj_crusher\\obj_crusher.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "effe1d81-19f2-4873-896c-310c344dc01a",
             "Value": {
                 "id": "fdd2f78d-15b3-4561-9d78-9c7426dbbb95",
@@ -1930,6 +1978,8 @@
         "d7d21763-8323-4549-8709-a1587734ad9f",
         "aefa7eda-d9ff-4a05-b33f-010546a493ab",
         "bd481e63-ec74-4c1f-8338-60a0b4f8a492",
+        "cdad7ed7-1792-4f4f-839e-ddea228422e0",
+        "7efa5a5f-3ed8-4d18-9eca-7b95eb765723",
         "1ead8f83-67d3-411c-bd0f-365929cfe9cb",
         "21f090cd-6af0-4b06-9db1-55ecef956ad5",
         "d76164ed-98da-4a14-a05e-35888c6ff40b",

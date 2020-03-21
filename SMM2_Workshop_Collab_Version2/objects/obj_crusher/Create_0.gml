@@ -2,10 +2,10 @@
 sightDistance = 64; // how far the player has to be horizontally before the sprite changes
 activationDistance = 32; // how far the player has to be horizontally before dropping on them
 initialY = y; // the spot for the crusher to return to after falling
-maxSpeed = 10; // how fast the crusher can go before hitting terminal velocity
-acceleration = 1; // how much to change the speed when dropping
-pauseHitTime = 30; // how long to wait after hitting a wall before retreating
-retreatSpeed = 3; // how fast to retreat
+maxSpeed = 5; // how fast the crusher can go before hitting terminal velocity
+acceleration = .5; // how much to change the speed when dropping
+pauseHitTime = 60; // how long to wait after hitting a wall before retreating
+retreatSpeed = 1.5; // how fast to retreat
 
 // private variables. do not edit!
 image_speed = 0;

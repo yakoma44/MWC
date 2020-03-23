@@ -17,7 +17,8 @@
         "f9b84b1e-dba8-45d2-b240-f91e69bb648b",
         "12322f86-c573-464a-b2ab-625673432424",
         "aa401aaa-1a54-444e-a8cf-7e413ef81dd3",
-        "ea8ce81c-45d1-4e51-a3a8-081086d834b9"
+        "ea8ce81c-45d1-4e51-a3a8-081086d834b9",
+        "3f3ec540-aac0-4517-a7a9-207e229fa69f"
     ],
     "filterType": "GMSprite",
     "folderName": "level elements",

@@ -42,3 +42,5 @@ cx = 0;
 cy = 0;
 vx = 0;
 vy = 0;
+
+holding=noone;

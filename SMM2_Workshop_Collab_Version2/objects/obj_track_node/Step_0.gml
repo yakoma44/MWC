@@ -47,6 +47,8 @@ if (runInitScript) { // only runs once. needs to be run after create
 		// now the path is created! assign it to the tracking_id
 		with (tracking_id) {
 			path_start(other.tracking_path, other.tracking_speed, other.path_end_action, true);
+			other.previousTrackingX = x;
+			other.previousTrackingY = y;
 		}
 			
 	}

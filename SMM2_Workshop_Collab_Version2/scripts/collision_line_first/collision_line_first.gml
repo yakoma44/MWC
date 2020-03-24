@@ -28,7 +28,7 @@
 	var sx,sy;
 	var inst;
 	var i;
-	
+
     ox = argument0;
     oy = argument1;
     dx = argument2;
@@ -36,26 +36,26 @@
     object = argument4;
     prec = argument5;
     notMe = argument6;
-	
+
     sx = dx - ox;
     sy = dy - oy;
-	
+
     inst = collision_line(ox, oy, dx, dy, object, prec, notMe);
-	
+
     if(inst != noone) 
 	{
         while((abs(sx) >= 1) || (abs(sy) >= 1)) 
 		{
             sx /= 2;
             sy /= 2;
-			
+
             i = collision_line(ox, oy, dx, dy, object, prec, notMe);
-			
+
             if(i) 
 			{
                 dx -= sx;
                 dy -= sy;
-				
+
                 inst = i;
             }
 			else
@@ -65,6 +65,6 @@
             }
         }
     }
-	
+
     return(inst);
 }

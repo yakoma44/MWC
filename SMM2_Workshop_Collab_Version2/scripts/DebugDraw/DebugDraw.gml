@@ -7,7 +7,7 @@
 if((argument_count % 2) == 1)
 {
 	++global.debugDrawCount;
-	
+
 	global.debugDrawNumberOfXYPairs[global.debugDrawCount] = (argument_count-1) / 2;
 	global.debugDrawColor[global.debugDrawCount] = argument[0];
 

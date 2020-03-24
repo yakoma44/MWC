@@ -1,5 +1,5 @@
 {
-    "id": "a39b975f-5464-4719-bf00-ef49ba7f425b",
+    "id": "3ec3c842-6a36-4347-82fe-56096aaec2e2",
     "modelName": "GMScript",
     "mvc": "1.0",
     "name": "DebugDraw",

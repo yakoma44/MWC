@@ -1,6 +1,6 @@
 /// @description DebugDraw functionality
 
-// Debug
+// DebugDraw()
 for(i = 0; i <= global.debugDrawCount; ++i)
 {
 	if(global.debugDrawNumberOfXYPairs[i] == 1)
@@ -8,14 +8,14 @@ for(i = 0; i <= global.debugDrawCount; ++i)
 		draw_point_color(global.debugDrawX1[i], global.debugDrawY1[i], 
 						 global.debugDrawColor[i]);
 	}
-	
+
 	if(global.debugDrawNumberOfXYPairs[i] == 2)
 	{
 		draw_line_color(global.debugDrawX1[i], global.debugDrawY1[i], 
 						global.debugDrawX2[i], global.debugDrawY2[i], 
 						global.debugDrawColor[i], global.debugDrawColor[i]);
 	}
-	
+
 	if(global.debugDrawNumberOfXYPairs[i] == 3)
 	{
 		draw_triangle_color(global.debugDrawX1[i], global.debugDrawY1[i], 
@@ -24,7 +24,7 @@ for(i = 0; i <= global.debugDrawCount; ++i)
 							global.debugDrawColor[i], global.debugDrawColor[i], 
 							global.debugDrawColor[i], true);			
 	}
-	
+
 	if(global.debugDrawNumberOfXYPairs[i] == 4)
 	{
 		draw_rectangle_color(global.debugDrawX1[i], global.debugDrawY1[i], 

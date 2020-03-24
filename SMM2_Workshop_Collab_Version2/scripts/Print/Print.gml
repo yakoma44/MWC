@@ -1,4 +1,3 @@
-/// Print
 ///@description @Print Convenience wrapper for show_debug_message()
 ///@param string/var
 

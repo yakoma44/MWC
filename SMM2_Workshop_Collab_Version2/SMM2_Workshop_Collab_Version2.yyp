@@ -207,6 +207,22 @@
             }
         },
         {
+            "Key": "19c02bff-7ce3-48cd-a661-b763c63d55e9",
+            "Value": {
+                "id": "ccb85c3b-afa6-4162-944f-4cf737eb5548",
+                "resourcePath": "sprites\\sprite63\\sprite63.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "1a618c6d-9f40-4557-862d-353e3a8ed4cd",
+            "Value": {
+                "id": "2dbc1d97-431f-47a8-a710-363bd8c9c91a",
+                "resourcePath": "sprites\\spr_slope\\spr_slope.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "1ead8f83-67d3-411c-bd0f-365929cfe9cb",
             "Value": {
                 "id": "a97934cf-08cf-4d6f-a27b-9df95857c514",
@@ -1799,6 +1815,14 @@
             }
         },
         {
+            "Key": "e214ad00-9c55-4ea9-b8bb-14660b9632da",
+            "Value": {
+                "id": "6a4dccb6-c8d8-439f-b441-c4d86af0e442",
+                "resourcePath": "objects\\obj_slope\\obj_slope.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "e3a0ab19-8f6a-40b1-9eb2-99f10365e94f",
             "Value": {
                 "id": "7d712114-42eb-4ee6-9434-f0431890db2a",
@@ -1916,6 +1940,14 @@
                 "id": "70d0a13f-ba3a-4000-9dae-674273d0b820",
                 "resourcePath": "sprites\\spr_mountainTileVerticalMiddle\\spr_mountainTileVerticalMiddle.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "f5781caa-e3a2-47ab-8f2e-240108e243fd",
+            "Value": {
+                "id": "53312da6-45f3-4f85-aa87-fbfacde08c66",
+                "resourcePath": "scripts\\collision_normal\\collision_normal.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -2065,6 +2097,7 @@
         "9469be05-9b4c-4765-b10f-709a26bc5a1d",
         "89fc11a9-d479-464d-b443-fdcd00b69bff",
         "df4869fe-29f6-4f00-bf7b-cf56a6eb45eb",
+        "f5781caa-e3a2-47ab-8f2e-240108e243fd",
         "3ec3c842-6a36-4347-82fe-56096aaec2e2",
         "0d1ba593-ccae-40de-a699-c13e2a308f58"
     ],

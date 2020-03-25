@@ -14,6 +14,7 @@ X_FRICTION          = 0xD0 * X_MULTIPLIER;
 xSpeed = 0;
 previousXSpeed = 0;
 runCounter = 0;
+wasInWalkThreshold = false;
 wasInRunThreshold = false;
 
 // X-Axis Aerial Movement
@@ -26,8 +27,8 @@ X_AERIAL_BACKWARD_MOMENTUM_UPPER_BELOW_JUMP_START_THRESHOLD = 0xA0 * X_MULTIPLIE
 X_AERIAL_BACKWARD_MOMENTUM_LOWER_BELOW_JUMP_START_THRESHOLD = 0x68 * X_MULTIPLIER;
 
 // Jumping
-WALKING_JUMP_HEIGHT = 22;
-WALKING_TIME_TO_JUMP_APEX = 0.26;
+WALKING_JUMP_HEIGHT = 34;
+WALKING_TIME_TO_JUMP_APEX = 0.28;
 JUMP_GRAVITY = 2*WALKING_JUMP_HEIGHT / sqr(WALKING_TIME_TO_JUMP_APEX);
 FALL_GRAVITY = 7*WALKING_JUMP_HEIGHT / sqr(WALKING_TIME_TO_JUMP_APEX);
 JUMP_VELOCITY = 2*WALKING_JUMP_HEIGHT / WALKING_TIME_TO_JUMP_APEX;
@@ -42,3 +43,29 @@ cx = 0;
 cy = 0;
 vx = 0;
 vy = 0;
+
+// Slopes
+enum rect
+{
+	left,
+	right,
+	top,
+	bottom,
+};
+
+enum collider
+{
+	left,
+	right,
+	above,
+	below,
+	slopeAngle,
+	slopeAnglePrevious,
+	climbingSlope,
+	count,
+};
+
+SKIN_WIDTH = 0.015;
+MAX_CLIMB_ANGLE = 80;
+isOnGroundOrCeiling = false; // TEMP
+collider[collider.count] = 0;

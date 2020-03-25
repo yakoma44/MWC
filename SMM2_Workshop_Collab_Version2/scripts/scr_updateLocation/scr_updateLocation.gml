@@ -51,7 +51,7 @@ for(i=0;i<=abs(vyNew);i++)
 	
 	// NORMAL Y MOVEMENT 
     if(!place_meeting(x,y+sign(vyNew),obj_block))
-	{ y+= sign(vyNew);}
+	{ y+= sign(vyNew); }
 	// ABNORMAL Y MOVEMENT
     else 
 	{

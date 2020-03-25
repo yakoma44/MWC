@@ -19,9 +19,19 @@ if(isOnGroundOrCeiling == true)
 	{
 		xSpeed += RUN_ACCELERATION*xInputDirection;
 		runCounter = 10; // Mario's run doesn't stop unless until 10 frames after the button has been released
+		if(holding==noone)
+		{
+			holding=collision_rectangle(x,y,x+16,y-8,obj_shell,false,true);
+		}
 	}
 	else
 	{
+		if(holding != noone)
+		{
+			holding.vx += vx;
+			holding.isHeld=false;
+			holding=noone;	
+		}
 		xSpeed += WALK_ACCELERATION*xInputDirection;
 		if(runCounter > 0) { --runCounter; }
 	}
@@ -120,6 +130,21 @@ if(isOnGroundOrCeiling == false)
 			xSpeed = signOfCurrentSpeed*WALK_SPEED_MAX;
 		}
 	}
+	if(runIsDown)
+	{
+		if(holding==noone)
+		{
+			holding=collision_rectangle(x,y,x+16,y-8,obj_shell,false,true);
+		}	
+	}else{
+		
+		if(holding != noone)
+		{
+			holding.vx += vx;
+			holding.isHeld=false;
+			holding=noone;	
+		}
+	}
 }
 
 vx -= (previousXSpeed - xSpeed*tDelta);
@@ -151,3 +176,12 @@ vy = 0.5*acceleration*sqr(tDelta) + ySpeed*tDelta;
 ySpeed += 0.5*acceleration*tDelta
 
 scr_updateLocation();
+if(holding != noone)
+{
+	with(holding)
+	{
+		x=obj_mario.x+(12*obj_mario.image_xscale);
+		y=obj_mario.y-4;
+		isHeld=true;
+	}
+}

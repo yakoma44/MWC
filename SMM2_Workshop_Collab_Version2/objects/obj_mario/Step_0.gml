@@ -26,7 +26,12 @@ if(isOnGroundOrCeiling == true)
 	}
 	else
 	{
-		holding=noone;
+		if(holding != noone)
+		{
+			holding.vx += vx;
+			holding.isHeld=false;
+			holding=noone;	
+		}
 		xSpeed += WALK_ACCELERATION*xInputDirection;
 		if(runCounter > 0) { --runCounter; }
 	}
@@ -125,6 +130,21 @@ if(isOnGroundOrCeiling == false)
 			xSpeed = signOfCurrentSpeed*WALK_SPEED_MAX;
 		}
 	}
+	if(runIsDown)
+	{
+		if(holding==noone)
+		{
+			holding=collision_rectangle(x,y,x+16,y-8,obj_shell,false,true);
+		}	
+	}else{
+		
+		if(holding != noone)
+		{
+			holding.vx += vx;
+			holding.isHeld=false;
+			holding=noone;	
+		}
+	}
 }
 
 vx -= (previousXSpeed - xSpeed*tDelta);
@@ -162,5 +182,6 @@ if(holding != noone)
 	{
 		x=obj_mario.x+(12*obj_mario.image_xscale);
 		y=obj_mario.y-4;
+		isHeld=true;
 	}
 }
